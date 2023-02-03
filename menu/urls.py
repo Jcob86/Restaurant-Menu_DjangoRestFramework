@@ -6,6 +6,7 @@ from . import views
 router = SimpleRouter()
 router.register('carts', views.CartViewSet)
 router.register('dishes', views.DishViewSet)
+router.register('menu', views.MenuViewSet, basename='menu')
 
 dishes_router = routers.NestedDefaultRouter(router, 'dishes', lookup='dish')
 dishes_router.register('images', views.DishImageViewSet, basename='dish-images')
