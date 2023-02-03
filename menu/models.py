@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from menu.validators import validate_file_size
 
 
 class Cart(models.Model):
@@ -30,3 +31,8 @@ class Dish(models.Model):
 
     class Meta:
         ordering = ['title'] 
+
+
+class DishImage(models.Model):
+    dish = models.ForeignKey(Dish, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='menu/images', validators=[validate_file_size])
