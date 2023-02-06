@@ -1,1 +1,1 @@
-# Restaurant-Menu_DjangoRestFramework
+# Restaurant Menu API builded in Django Rest Framework
