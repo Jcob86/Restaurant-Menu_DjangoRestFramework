@@ -21,6 +21,7 @@ python manage.py runserver
 
 ## You can find whole API Documentation under this link <a href="http://localhost:8000/swagger/schema" target="_blank">Restaurant API Docs</a>
 
+## Authorization
 I highly recommend to use Postman or <a href="https://chrome.google.com/webstore/detail/modheader-modify-http-hea/idgpnmonknjnojddfkpgkljpfnnfcklj" target="_blank">ModHeader</a> to save your JWT to pass authorization easily
 
 
