@@ -20,3 +20,11 @@ python manage.py runserver
 ```
 
 ## You can find whole API Documentation under this link <a href="http://localhost:8000/swagger/schema" target="_blank">Restaurant API Docs</a>
+
+
+## Message Broker installation
+```bash
+sudo apt update
+sudo apt install redis
+redis-server
+```
