@@ -9,8 +9,8 @@ class CustomDateField(serializers.DateField):
 
 
 class CartSerializer(serializers.ModelSerializer):
-    added = CustomDateField()
-    last_update = CustomDateField()
+    added = CustomDateField(read_only=True)
+    last_update = CustomDateField(read_only=True)
     class Meta:
         model = Cart
         fields = ['id', 'title', 'description', 'added', 'last_update', 'dishes_count']
@@ -30,8 +30,8 @@ class DishImageSerializer(serializers.ModelSerializer):
 
 class DishSerializer(serializers.ModelSerializer):
     images = DishImageSerializer(many=True, read_only=True)
-    added = CustomDateField()
-    last_update = CustomDateField()
+    added = CustomDateField(read_only=True)
+    last_update = CustomDateField(read_only=True)
 
     class Meta:
         model = Dish
@@ -40,8 +40,8 @@ class DishSerializer(serializers.ModelSerializer):
 
 class MenuSerializer(serializers.ModelSerializer):
     dishes = DishSerializer(many=True, read_only=True)
-    added = CustomDateField()
-    last_update = CustomDateField()
+    added = CustomDateField(read_only=True)
+    last_update = CustomDateField(read_only=True)
     class Meta:
         model = Cart
         fields = ['id', 'title', 'description', 'added', 'last_update', 'dishes_count', 'dishes']

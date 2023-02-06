@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
+    'django_celery_results',
     'rest_framework',
     'drf_yasg',
     'djoser',
@@ -85,12 +86,12 @@ WSGI_APPLICATION = 'Restaurant.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'restaurant',
 	'USER': 'postgres',
 	'PASSWORD': env("PASSWORD"),
 	'HOST': '127.0.0.1',
-	'PORT': '5432',
+	'PORT': '5433',
     }
 }
 
@@ -128,16 +129,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 REST_FRAMEWORK = {
     'COERCE_DECIMAL_TO_STRING': False,
@@ -149,6 +155,7 @@ REST_FRAMEWORK = {
     ),
 }
 
+
 DJOSER = {
     'ACTIVATION_URL': 'activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
@@ -156,10 +163,12 @@ DJOSER = {
     'SEND_CONFIRMATION_EMAIL': True
 }
 
+
 SIMPLE_JWT = {
    'AUTH_HEADER_TYPES': ('JWT',),
    'ACCESS_TOKEN_LIFETIME': timedelta(days=1)
 }
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -167,3 +176,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = env("EMAIL_ACC")
 EMAIL_HOST_PASSWORD = env("EMAIL_PASS")
 EMAIL_USE_TLS = True
+
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'django-db'
