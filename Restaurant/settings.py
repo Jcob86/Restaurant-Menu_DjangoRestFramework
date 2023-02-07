@@ -13,6 +13,8 @@ from datetime import timedelta
 from pathlib import Path
 import environ
 import os
+import logging
+from logging.handlers import RotatingFileHandler
 
 env = environ.Env()
 environ.Env.read_env()
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'django_celery_results',
+    'django_celery_beat',
     'rest_framework',
     'drf_yasg',
     'djoser',
@@ -178,5 +181,12 @@ EMAIL_HOST_PASSWORD = env("EMAIL_PASS")
 EMAIL_USE_TLS = True
 
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'django-db'
+CELERY_BEAT_SCHEDULE = {
+    'testing_task': {
+        'task': 'menu.tasks.add',
+        'schedule': timedelta(minutes=1),
+        'args': (),
+    },
+}
