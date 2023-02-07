@@ -56,3 +56,9 @@ cd Restaurant-Menu_DjangoRestFramework
 source venv/bin/activate
 celery -A Restaurant worker -l info --beat
 ```
+
+## Tests
+To run tests, just type:
+```bash
+pytest
+```
