@@ -17,6 +17,7 @@ python manage.py migrate
 python manage.py createsuperuser ... [optionally to have all permissions]
 ...
 ```
+You have to create '.env' file in Restaurant-Menu_DjangoRestFramework/Restaurant with your credentials (email_acc, passwords, etc.)
 
 ## You can find whole API Documentation under this link <a href="http://localhost:8000/swagger/schema" target="_blank">Restaurant API Docs</a>
 Shortcut here:
