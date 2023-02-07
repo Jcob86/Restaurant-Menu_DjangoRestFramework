@@ -19,6 +19,9 @@ python manage.py createsuperuser ... [optionally to have all permissions]
 ```
 
 ## You can find whole API Documentation under this link <a href="http://localhost:8000/swagger/schema" target="_blank">Restaurant API Docs</a>
+Shortcut here:
+- carts, dishes endpoints are for non public use
+- menu is the endpoint to a public use
 
 ## Authorization
 I highly recommend to use Postman or <a href="https://chrome.google.com/webstore/detail/modheader-modify-http-hea/idgpnmonknjnojddfkpgkljpfnnfcklj" target="_blank">ModHeader</a> to save your JWT to pass authorization easily
