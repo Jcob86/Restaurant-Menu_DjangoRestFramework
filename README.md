@@ -32,15 +32,15 @@ sudo apt install redis
 
 ## Project Run
 We have to open few terminals
-1. Run Redis
-```bash
-redis-server
-```
-2. Run server
+1. Run server
 ```bash
 cd Restaurant-Menu_DjangoRestFramework
 source venv/bin/activate
 python manage.py runserver
+```
+2. Run Redis
+```bash
+redis-server
 ```
 3. Tasks
 ```bash
