@@ -13,8 +13,7 @@ from datetime import timedelta
 from pathlib import Path
 import environ
 import os
-import logging
-from logging.handlers import RotatingFileHandler
+from celery.schedules import crontab
 
 env = environ.Env()
 environ.Env.read_env()
@@ -160,10 +159,7 @@ REST_FRAMEWORK = {
 
 
 DJOSER = {
-    'ACTIVATION_URL': 'activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True,
     'SERIALIZERS': {},
-    'SEND_CONFIRMATION_EMAIL': True
 }
 
 
@@ -185,8 +181,8 @@ CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_BEAT_SCHEDULE = {
     'testing_task': {
-        'task': 'menu.tasks.add',
-        'schedule': timedelta(minutes=1),
+        'task': 'menu.tasks.notify',
+        'schedule': crontab(hour=10, minute=0),
         'args': (),
     },
 }
