@@ -9,6 +9,7 @@ git clone https://github.com/Jcob86/Restaurant-Menu_DjangoRestFramework.git
 cd Restaurant-Menu_DjangoRestFramework
 python3 -m venv venv 
 source venv/bin/activate
+pip install -r requirements.txt
 ```
 
 You have to setup your database and password in settings.py, then:
